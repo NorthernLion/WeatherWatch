@@ -1,0 +1,20 @@
+{
+  "name": "weatherwatchback",
+  "version": "1.0.0",
+  "description": "Node backend React frontend Mongoose Database REDUX for the fun of learning Graphics ???",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NorthernLion/WeatherWatch.git"
+  },
+  "author": "Joona Pesonen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NorthernLion/WeatherWatch/issues"
+  },
+  "homepage": "https://github.com/NorthernLion/WeatherWatch#readme"
+}
