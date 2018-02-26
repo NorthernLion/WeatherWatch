@@ -1,13 +1,15 @@
 import React from 'react';
 import ObservationForm from './components/ObservationForm'
+import { connect } from 'react-redux'
+import initializeLocations from './reducers/LocationReducer'
+import initializeObservations from './reducers/ObservationReducer'
+
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-    }
+  componentWillMount() {
+
   }
-  
+
   render() {
     return (      
       <div className="container">
@@ -17,4 +19,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(
+  null,
+  { initializeLocations, initializeObservations }
+)(App)
