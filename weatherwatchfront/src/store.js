@@ -12,7 +12,8 @@ const reducer = combineReducers({
   locations: LocationReducer,
   observations: ObservationReducer,
   time: TimeReducer,
-  notification: NotificationReducer
+  notification: NotificationReducer,
+  app: AppReducer
 })
 
 const store = createStore(

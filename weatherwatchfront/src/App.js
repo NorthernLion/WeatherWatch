@@ -3,6 +3,8 @@ import ObservationForm from './components/ObservationForm'
 import { connect } from 'react-redux'
 import { initializeLocations } from './actions/LocationActions'
 import { initializeObservations } from './actions/ObservationActions'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import NavBar from './components/NavBar'
 
 
 class App extends React.Component {
@@ -14,11 +16,21 @@ class App extends React.Component {
   render() {
     return (      
       <div className="container">
-        <ObservationForm />
+        <NavBar />
+        {this.props.creating
+          ? <ObservationForm />
+          : <p>tada</p>}
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    creating: state.creating
+  }
+}
+
 
 export default connect(
   null,
