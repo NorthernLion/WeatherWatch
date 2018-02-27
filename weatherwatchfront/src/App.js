@@ -5,6 +5,8 @@ import { initializeLocations } from './actions/LocationActions'
 import { initializeObservations } from './actions/ObservationActions'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import NavBar from './components/NavBar'
+import MainPage from './components/MainPage'
+import Location from './components/Location'
 
 
 class App extends React.Component {
@@ -17,9 +19,14 @@ class App extends React.Component {
     return (      
       <div className="container">
         <NavBar />
-        {this.props.creating
+        {this.props.showForm
           ? <ObservationForm />
-          : <p>tada</p>}
+          : ''}
+          
+        {this.props.selectedLocation 
+          ? <Location />
+          : <MainPage locations={this.props.locations} />
+          }
       </div>
     )
   }
@@ -27,12 +34,14 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    creating: state.creating
+    showForm: state.app.showForm,
+    selectedLocation: state.app.selectedLocation,
+    locations: state.locations
   }
 }
 
 
 export default connect(
-  null,
+  mapStateToProps,
   { initializeLocations, initializeObservations }
 )(App)

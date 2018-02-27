@@ -1,5 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { toggleForm } from '../actions/AppActions'
+import { connect } from 'react-redux'
 
 const NavBar = (props) => {
 
@@ -12,7 +14,7 @@ const NavBar = (props) => {
       </Navbar.Header>
       <Navbar.Form pullRight>
           <button
-            onClick={() => 'tadaa'}
+            onClick={props.toggleForm}
             className='btn btn-primary'>
             Add Observation
           </button>
@@ -21,4 +23,7 @@ const NavBar = (props) => {
   )
 }
 
-export default NavBar
+export default connect(
+  null,
+  { toggleForm }
+  )(NavBar)

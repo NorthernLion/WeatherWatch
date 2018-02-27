@@ -25,9 +25,10 @@ export const submitObservation = (e) => {
 export const changeTime = (e) => {  
   return async (dispatch) => {
     try {
-      dispatch(newTime(e._d))
+      if(e._d) {
+        dispatch(newTime(e._d))
+      }      
     } catch (ex) {
-      console.log(ex)
     }
   }
 }

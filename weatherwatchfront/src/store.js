@@ -6,6 +6,7 @@ import LocationReducer from './reducers/LocationReducer'
 import ObservationReducer from './reducers/ObservationReducer'
 import TimeReducer from './reducers/TimeReducer'
 import NotificationReducer from './reducers/NotificationReducer'
+import AppReducer from './reducers/AppReducer'
 
 
 const reducer = combineReducers({

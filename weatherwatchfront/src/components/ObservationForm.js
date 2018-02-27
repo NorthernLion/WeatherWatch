@@ -46,7 +46,7 @@ class ObservationForm extends React.Component {
                 <Row>
                   <Col md={8}>
                     <ControlLabel>Local time of measurement</ControlLabel>
-                    <Datetime onChange={this.props.changeTime} name="time" isValidDate={this.valid} inputProps="required"/>
+                    <Datetime onChange={this.props.changeTime} name="time" isValidDate={this.valid}/>
                     <HelpBlock>Local time will be automaticly turned to GMT</HelpBlock>
                   </Col>
                 </Row>
@@ -56,13 +56,7 @@ class ObservationForm extends React.Component {
                 </FormGroup>
               </form>
             </Col>
-
-            <Col md={6}>
-              <p>Image here</p>
-            </Col>
-
           </Row>
-
         </Well>
       </div>
     )
