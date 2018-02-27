@@ -3,7 +3,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 let port = process.env.PORT
+let mongoUrl = process.env.MONGODB_URI
 
 module.exports = {
-  port
+  port,
+  mongoUrl
 }

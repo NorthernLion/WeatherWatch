@@ -19,7 +19,7 @@ app.use(express.static('build'))
 app.use(middleware.logger)
 
 app.use('/api/locations', locationsRouter)
-app,use('/api/observations', observationsRouter)
+app.use('/api/observations', observationsRouter)
 
 
 const server = http.createServer(app)
@@ -28,9 +28,6 @@ server.listen(config.port, () => {
   console.log(`Server running on port ${config.port}`)
 })
 
-app.get('/', (req, res) => {
-  res.send('<h1>Hello World!</h1>')
-})
 app.use(middleware.error)
 
 server.on('close', () => {

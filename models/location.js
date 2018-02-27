@@ -10,6 +10,7 @@ const Location = mongoose.model('Location', {
 Location.format = function (location) {
   return {
     id: location._id,
+    name: location.name,
     amplitude: location.amplitude,
     longitude: location.longitude,
     observations: location.observations

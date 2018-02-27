@@ -1,4 +1,4 @@
-import observationService
+import observationService from '../services/Observations'
 
 export const initializeObservations = () => {
   return async (dispatch) => {

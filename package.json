@@ -4,9 +4,9 @@
   "description": "Node backend React frontend Mongoose Database REDUX for the fun of learning Graphics ???",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "cross-env NODE_ENV=development node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon index.js"
+    "watch": "cross-env NODE_ENV=development node_modules/.bin/nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,13 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "dotenv": "^5.0.0",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "http": "0.0.0",
     "mongoose": "^5.0.7"
   },
   "devDependencies": {
+    "cross-env": "^5.1.3",
     "nodemon": "^1.15.1"
   }
 }

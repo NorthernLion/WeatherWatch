@@ -1,3 +1,5 @@
+import locationService from '../services/Locations'
+
 export const initializeLocations = () => {
   return async (dispatch) => {
     const locations = await locationService.getAll()
