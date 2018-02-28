@@ -15,7 +15,7 @@ $ npm install
 
 ## Run
 
-To start the server
+To start the application
 
 ```
 $ npm start
