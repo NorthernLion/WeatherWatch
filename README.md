@@ -24,7 +24,7 @@ $ npm start
 or if you want to run application in some other port than default 3001
 
 ```
-$ PORT=<port> node server.js
+$ PORT=<port> node index.js
 ```
 
 where you should replace `<port>` with wanted port number i.e. 3000.
