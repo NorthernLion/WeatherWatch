@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import { Alert } from 'react-bootstrap'
 
 class Notification extends React.Component {
 
@@ -9,7 +10,9 @@ class Notification extends React.Component {
       return null
     }
     return (
-      <div className={`notification ${this.props.notification.error ? 'error' : 'success'}`} >{this.props.notification.message}</div>
+      <Alert bsStyle={this.props.notification.error ? 'danger' : 'success'}>
+        {this.props.notification.message}
+      </Alert>
     )
   }
 }

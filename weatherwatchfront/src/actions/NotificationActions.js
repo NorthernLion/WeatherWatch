@@ -16,6 +16,6 @@ export const createNotification = (notification) => {
     dispatch(newNotification(notification))
     setTimeout(() => {
       dispatch(clearNotification())
-    }, 3000)
+    }, 5000)
   }
 }

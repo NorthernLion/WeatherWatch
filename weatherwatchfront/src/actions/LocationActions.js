@@ -12,6 +12,6 @@ export const initializeLocations = () => {
 
 export const getOne = (id) => {
   return async (dispatch) => {
-    const location = await locationService.getOne(id)
+    await locationService.getOne(id)
   }
 }

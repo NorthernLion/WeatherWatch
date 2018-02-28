@@ -2,23 +2,22 @@ import React from 'react';
 import ObservationForm from './components/ObservationForm'
 import { connect } from 'react-redux'
 import { initializeLocations } from './actions/LocationActions'
-import { initializeObservations } from './actions/ObservationActions'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import MainPage from './components/MainPage'
 import Location from './components/Location'
+import Notification from './components/Notification'
 
 
 class App extends React.Component {
   componentWillMount() {
     this.props.initializeLocations()
-    //this.props.initializeObservations()
   }
 
   render() {
     return (      
       <div className="container">
         <NavBar />
+        <Notification />
         {this.props.showForm
           ? <ObservationForm />
           : ''}
@@ -34,8 +33,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    showForm: state.app.showForm,
-    selectedLocation: state.app.selectedLocation,
+    showForm: state.route.showForm,
+    selectedLocation: state.route.selectedLocation,
     locations: state.locations
   }
 }
@@ -43,5 +42,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { initializeLocations, initializeObservations }
+  { initializeLocations }
 )(App)

@@ -1,8 +1,8 @@
 import observationService from '../services/Observations'
-import moment from 'moment'
 import { clearTime, newTime } from './TimeActions'
 import { initializeLocations } from './LocationActions'
-import { toggleForm } from './AppActions'
+import { toggleForm, clearLocation } from './RouteActions'
+import { createNotification } from './NotificationActions'
 
 export const submitObservation = (e) => {
   e.preventDefault()
@@ -11,17 +11,23 @@ export const submitObservation = (e) => {
 
     const observation = {
       temperature: e.target.temperature.value,
-      location: e.target.location.value,
+      locationId: e.target.location.value,
       time
     }
 
     try {
-      await observationService.create(observation)
+      const createdObs = await observationService.create(observation)
       dispatch(clearTime())
       dispatch(initializeLocations())
       dispatch(toggleForm())
+      dispatch(clearLocation())
+      dispatch(createNotification({ message: 'Temperature ' + createdObs.temperature + ' reported succesfully for selected city' }))
     } catch (ex) {
-      console.log(ex)
+      const notification = {
+        message: ex.response.data,
+        error: true
+      }
+      dispatch(createNotification(notification))
     }
   }
 }

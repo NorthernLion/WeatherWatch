@@ -5,30 +5,35 @@ const observationRouter = require('express').Router()
 
 validateObservation = async (observation) => {
   const errors = []
-  const { time, temperature, location } = observation
-  //if (!isNaN(time.getTime())) {
-   // errors.push('The date format is not suported by the backend. ')
-  //}
-  if (location === undefined) {
+  const { time, temperature, locationId } = observation
+  locations = await Location.find({})
+  if (!time) {
+    errors.push('The date format is incorrect please use calendar to select date')
+  } else if (new Date(time) > new Date()) {
+    errors.push('You cannot report temperature of the future')
+  }
+  const matchingLocation = locations.filter(l => l.id === locationId)
+  if (locationId === undefined || matchingLocation.length < 0) {
     errors.push('You did not give a valid location')
   }
   if (temperature > 100 || temperature < -100) {
-    errors.push('That is some extreme temperature! Please select temperature between -100 and 100')
+    errors.push('Please select temperature between -100 and 100')
   }
   return errors
 }
 
 observationRouter.post('/', async (req, res) => {
-  const { time, location, temperature} = req.body
+  const { time, locationId, temperature} = req.body
   const errors = await validateObservation(req.body)
+  console.log(errors)
   if (errors.length > 0) {
-    return res.status(400).send(errors.join('\n'))
+    return res.status(400).send(errors.join(' & '))
   }
   try {
-    const observation = new Observation({ time, location, temperature }) 
+    const observation = new Observation({ time, locationId, temperature }) 
     const result = await observation.save()
 
-    const locationFromDb = await Location.findById(location)
+    const locationFromDb = await Location.findById(locationId)
 
     locationFromDb.observations = locationFromDb.observations.concat(observation.id)
     

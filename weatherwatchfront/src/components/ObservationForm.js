@@ -1,10 +1,9 @@
 import React from 'react'
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Col, Row, Button, Image, Well } from 'react-bootstrap'
+import { FormGroup, ControlLabel, FormControl, HelpBlock, Col, Row, Well } from 'react-bootstrap'
 import moment from 'moment'
 import { submitObservation, changeTime } from '../actions/ObservationFormActions'
-import { toggleForm } from '../actions/AppActions'
+import { toggleForm } from '../actions/RouteActions'
 import { connect } from 'react-redux'
-import Notification from './Notification'
 
 const Datetime = require('react-datetime')
 
@@ -20,10 +19,6 @@ class ObservationForm extends React.Component {
 
       <div>
         <Well>
-          <Row>
-            <Notification />
-          </Row>
-
           <Row>
             <Col md={6}>
               <form onSubmit={this.props.submitObservation}>
@@ -46,7 +41,7 @@ class ObservationForm extends React.Component {
 
                 <Row>
                   <Col md={8}>
-                    <ControlLabel>Local time of measurement</ControlLabel>
+                    <ControlLabel>Local time</ControlLabel>
                     <Datetime onChange={this.props.changeTime} name="time" isValidDate={this.valid}/>
                     <HelpBlock>Local time will be automaticly turned to GMT</HelpBlock>
                   </Col>

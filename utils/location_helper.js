@@ -1,18 +1,18 @@
 const yesterday = new Date(new Date().getTime() - (24 * 60 * 60 * 1000));
 
 statistics = (observations) => {
-  const lastDayObservations = observations.filter(observation => new Date(observation.time) > yesterday)
+  const lastDayObservations = observations.filter(observation => new Date(observation.time) > yesterday && new Date(observation.time) <new Date ())
   let max ='N/A'
   let min ='N/A'
   let latest ='N/A'
   if (lastDayObservations.length > 0) {
     const lastDayTemperatures = lastDayObservations.map(observation => parseInt(observation.temperature))
-    max = maxTemperature(lastDayTemperatures)
-    min = minTemperature(lastDayTemperatures)
+    max = maxTemperature(lastDayTemperatures) + ' °C'
+    min = minTemperature(lastDayTemperatures) + ' °C'
   } 
   if (observations.length > 0) {
     const observationsInOrder = observations.sort((th, nd) => new Date(th.time) - new Date(nd.time))
-    latest = latestTemperature(observationsInOrder)
+    latest = latestTemperature(observationsInOrder) + ' °C'
   }
   return ({
     max,

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap'
-import { toggleForm, clearLocation } from '../actions/AppActions'
+import { Navbar } from 'react-bootstrap'
+import { toggleForm, clearLocation } from '../actions/RouteActions'
 import { connect } from 'react-redux'
 
 const NavBar = (props) => {

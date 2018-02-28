@@ -4,7 +4,7 @@ const initialState = {
   showForm: false
 }
 
-const AppReducer = (state = initialState, action) => {
+const RouterReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_LOCATION':
       return { ...state, selectedLocation: action.location }
@@ -17,4 +17,4 @@ const AppReducer = (state = initialState, action) => {
   }
 }
 
-export default AppReducer
+export default RouterReducer
