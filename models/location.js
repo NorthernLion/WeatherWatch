@@ -13,6 +13,9 @@ Location.format = function (location) {
     name: location.name,
     amplitude: location.amplitude,
     longitude: location.longitude,
+    min: location.min,
+    max: location.max,
+    latest: location.latest,
     observations: location.observations
   }
 }

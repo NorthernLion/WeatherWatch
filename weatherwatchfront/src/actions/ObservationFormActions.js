@@ -1,6 +1,8 @@
 import observationService from '../services/Observations'
 import moment from 'moment'
-import { clearTime, newTime} from './TimeActions'
+import { clearTime, newTime } from './TimeActions'
+import { initializeLocations } from './LocationActions'
+import { toggleForm } from './AppActions'
 
 export const submitObservation = (e) => {
   e.preventDefault()
@@ -16,6 +18,8 @@ export const submitObservation = (e) => {
     try {
       await observationService.create(observation)
       dispatch(clearTime())
+      dispatch(initializeLocations())
+      dispatch(toggleForm())
     } catch (ex) {
       console.log(ex)
     }
