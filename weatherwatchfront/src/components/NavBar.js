@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
-import { toggleForm } from '../actions/AppActions'
+import { toggleForm, clearLocation } from '../actions/AppActions'
 import { connect } from 'react-redux'
 
 const NavBar = (props) => {
@@ -9,7 +9,7 @@ const NavBar = (props) => {
     <Navbar inverse collapseOnSelect fluid >
       <Navbar.Header>
         <Navbar.Brand>
-          Weather-Watch
+          <a onClick={props.clearLocation}>Weather-Watch</a>
         </Navbar.Brand>
       </Navbar.Header>
       <Navbar.Form pullRight>
@@ -25,5 +25,5 @@ const NavBar = (props) => {
 
 export default connect(
   null,
-  { toggleForm }
+  { toggleForm, clearLocation }
   )(NavBar)

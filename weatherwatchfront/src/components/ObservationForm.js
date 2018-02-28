@@ -2,6 +2,7 @@ import React from 'react'
 import { FormGroup, ControlLabel, FormControl, HelpBlock, Col, Row, Button, Image, Well } from 'react-bootstrap'
 import moment from 'moment'
 import { submitObservation, changeTime } from '../actions/ObservationFormActions'
+import { toggleForm } from '../actions/AppActions'
 import { connect } from 'react-redux'
 import Notification from './Notification'
 
@@ -51,9 +52,17 @@ class ObservationForm extends React.Component {
                   </Col>
                 </Row>
                 <FormGroup>
-                  <input type="submit" value="Submit" />
+                  <Col md={2}>
+                  <input className='btn btn-primary' type="submit" value="Submit" />
+                  </ Col>
+                  <button
+                    onClick={this.props.toggleForm}
+                    className='btn btn-primary'>
+                    Cansel
+                </button>
                   <HelpBlock>Every field is required!</HelpBlock>
                 </FormGroup>
+
               </form>
             </Col>
           </Row>
@@ -71,5 +80,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { submitObservation, changeTime }
+  { submitObservation, changeTime, toggleForm }
 )(ObservationForm)
