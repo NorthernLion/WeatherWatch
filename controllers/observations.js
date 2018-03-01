@@ -16,6 +16,9 @@ validateObservation = async (observation) => {
   if (locationId === undefined || matchingLocation.length < 0) {
     errors.push('You did not give a valid location')
   }
+  if (isNaN(temperature)) {
+    errors.push('Please give temperature as numbers')
+  }
   if (temperature > 100 || temperature < -100) {
     errors.push('Please select temperature between -100 and 100')
   }
