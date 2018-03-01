@@ -1,22 +1,35 @@
-# WeatherWatch
+## WeatherWatch
 
-I am live at https://north-weather-watch.herokuapp.com/
-Node backend
-React frontend
-Mongoose Database
-REDUX for the fun of learning
-Graphics ???
+This is a solution to preliminary assignment for Reaktor's summer job.
+Created using Node, Express, React, Redux MongoDb and Bootstrap.
+Calendar was taken from react-datetime package.
 
-Ideas:
-1. Formi - React calendar for setting time (Required fields ??? )
-2. Havainto Listaus -- logi tyyppinen ajallisessa järjestyksessä - Oma sivunsa? <= Tämä turha?
-3. Etusivu - kohteet click => Oma sivu - ylin ja alin 24 h + viimeisin havainto + aika
-4. Oma Sivu - ylin ja alin 24 h
+Code for the backend is located in the root of the repository (because heroku is a bitch if this is not the case) and frontend in the folder weatherwatchfront.
 
-Tärkeät:
-1. Database validointi, miten?
-2. Heroku
+Application can be found in heroku: https://north-weather-watch.herokuapp.com/
 
-Extra:
-1. Kuvakkeet kaupungeille etusivulle
-2. Lämpötilan vaihtaminen
+## Install
+
+```
+$ git clone https://github.com/NorthernLion/WeatherWatch.git
+$ cd WeatherWatch
+$ npm install
+```
+
+## Run
+
+To start the application
+
+```
+$ npm start
+```
+
+or if you want to run application in some other port than default 3001
+
+```
+$ PORT=<port> node index.js
+```
+
+where you should replace `<port>` with wanted port number i.e. 3000.
+
+React page will be running in the adress: http://localhost:port/
